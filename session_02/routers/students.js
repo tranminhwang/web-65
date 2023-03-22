@@ -10,7 +10,7 @@ const students = [
   },
 ];
 
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
   console.log(req.params);
   // if (Object.keys(req.query).length > 0) {
   //   const { name } = req.query;
@@ -23,11 +23,18 @@ router.get("/:id", (req, res) => {
     (student) => student.id === Number(req.params.id)
   );
 
-  res.status(200).send(student);
+  res.status(200).send(students);
 });
-router.get("/create", (req, res) => {});
+router.get("/create/:userId/:userName", (req, res) => {
+  const { id, name } = req.params;
+
+  console.log(req.params);
+
+  res.send("OK");
+});
+
 router.get("/read", (req, res) => {
-  res.send("Read students");
+  res.send(students);
 });
 router.get("/update", (req, res) => {});
 router.get("/delete", (req, res) => {});
