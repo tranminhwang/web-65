@@ -1,9 +1,10 @@
 import express from "express";
+import authMiddleware from "../middlewares/authMiddleware.js";
 import { studentsCollection } from "../configs/connectDB.js";
 
 const studentRoutes = express.Router();
 
-studentRoutes.get("/", async (req, res) => {
+studentRoutes.get("/", authMiddleware, async (req, res) => {
   const allStudents = await studentsCollection.find().toArray();
   res.status(200).json({
     message: "Success",
@@ -11,7 +12,7 @@ studentRoutes.get("/", async (req, res) => {
   });
 });
 
-studentRoutes.post("/", async (req, res) => {
+studentRoutes.post("/", authMiddleware, async (req, res) => {
   try {
     // lay data tu body
     const studentData = req.body;
