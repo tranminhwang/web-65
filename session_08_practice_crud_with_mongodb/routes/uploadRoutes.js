@@ -37,8 +37,12 @@ uploadRouter.post("/avatar", upload.single("uploaded_file"), (req, res) => {
       message: "Please upload a file",
     });
   }
+  const PORT = process.env.PORT;
+  const filePath = file.path.replace("public/", "");
+  const fileUrl = `${req.protocol}://${req.host}:${PORT}/${filePath}`;
+
   res.status(200).json({
-    message: "Upload file success",
+    message: fileUrl,
   });
 });
 
