@@ -1,8 +1,15 @@
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 import { config } from "dotenv";
 config();
 
-export const client = new MongoClient(process.env.MONGO_DB_URL);
+const dbConnect = async () => {
+    try {
+        const db = await mongoose.connect(process.env.MONGO_DB_URL)
+        console.log(' Connect DB success!')
+    } catch (error) {
+        
+    };
 
-export const studentsCollection = client.db("web_65").collection("students");
-export const authCollection = client.db("web_65").collection("auth");
+};
+
+export default dbConnect;
