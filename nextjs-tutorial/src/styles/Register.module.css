@@ -1,0 +1,12 @@
+.loginForm {
+  width: 400px;
+  background-color: red;
+}
+
+.text-red {
+  color: yellow;
+}
+
+.text-center {
+  text-align: center;
+}
