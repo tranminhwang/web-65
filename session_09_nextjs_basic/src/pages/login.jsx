@@ -15,6 +15,7 @@ const inlineStyle = {
 };
 
 function Login() {
+  console.log("loginPageStyle", loginPageStyle);
   return (
     <div
       style={inlineStyle.logginWrapper}
@@ -31,3 +32,6 @@ function Login() {
 }
 
 export default Login;
+
+// 1: Nam, Luân, Tín
+// 2: Huy, Hiếu , Thanh, Vũ
