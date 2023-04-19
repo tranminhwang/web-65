@@ -56,6 +56,11 @@ authRouter.post("/login", async (req, res) => {
     }
   );
 
+  res.cookie("jwt", token, {
+    httpOnly: true,
+    maxAge: 30 * 1000, // 30s
+  });
+
   // send token to client
   return res.status(200).json({
     message: "Login success",
